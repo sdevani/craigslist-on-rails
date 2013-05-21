@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521181500) do
+ActiveRecord::Schema.define(:version => 20130521211422) do
 
   create_table "item_orders", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(:version => 20130521181500) do
     t.integer  "user_id"
     t.integer  "count",       :default => 0
   end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ratings", ["item_id"], :name => "index_ratings_on_item_id"
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

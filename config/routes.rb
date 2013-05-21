@@ -1,6 +1,8 @@
 EbookSale::Application.routes.draw do
+
   resources :items do
     resource :item_order
+    resource :rating
   end
 
 
