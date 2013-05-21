@@ -1,3 +1,9 @@
 <h3>User</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<br>
+<h4>I own these Items</h4>
+<% @items_owned.each do |item| %>
+  <%= link_to item.title, item %>
+  <br>
+<% end %>

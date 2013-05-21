@@ -5,19 +5,15 @@
     <th>Title</th>
     <th>Cost</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Owner</th>
   </tr>
 
 <% @items.each do |item| %>
   <tr>
-    <td><%= item.title %></td>
+    <td><%= link_to item.title, item %></td>
     <td><%= item.cost %></td>
     <td><%= item.description %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to item.user.name, item.user %></td>
   </tr>
 <% end %>
 </table>
