@@ -1,5 +1,7 @@
 EbookSale::Application.routes.draw do
-  resources :items
+  resources :items do
+    resource :item_order
+  end
 
 
   authenticated :user do

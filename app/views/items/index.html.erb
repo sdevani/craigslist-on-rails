@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Cost</th>
     <th>Description</th>
+    <th>Number Left</th>
     <th>Owner</th>
   </tr>
 
@@ -13,6 +14,7 @@
     <td><%= link_to item.title, item %></td>
     <td><%= item.cost %></td>
     <td><%= item.description %></td>
+    <td><%= item.count %></td>
     <td><%= link_to item.user.name, item.user %></td>
   </tr>
 <% end %>
