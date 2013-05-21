@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # GET /items
   # GET /items.json
   def index
@@ -40,7 +42,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    @item = current_user.items.build(params[:item])
 
     respond_to do |format|
       if @item.save
