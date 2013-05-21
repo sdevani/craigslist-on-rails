@@ -11,14 +11,16 @@
   </tr>
 
 <% @items.each do |item| %>
-  <tr>
-    <td><%= link_to item.title, item %></td>
-    <td><%= item.cost %></td>
-    <td><%= item.description %></td>
-    <td><%= item.count %></td>
-    <td><%= link_to item.user.name, item.user %></td>
-    <td><%= buy_button(item) %></td>
-  </tr>
+  <% if item.count > 0 %>
+    <tr>
+      <td><%= link_to item.title, item %></td>
+      <td><%= item.cost %></td>
+      <td><%= item.description %></td>
+      <td><%= item.count %></td>
+      <td><%= link_to item.user.name, item.user %></td>
+      <td><%= buy_button(item) unless current_user == item.user %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
 

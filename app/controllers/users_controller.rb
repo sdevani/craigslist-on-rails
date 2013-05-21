@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items_selling = current_user.items
-    @item_orders = current_user.item_orders
+    @items_selling = @user.items
+    @item_orders = @user.item_orders
   end
   
   def update
