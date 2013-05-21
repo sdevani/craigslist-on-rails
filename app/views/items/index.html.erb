@@ -7,6 +7,7 @@
     <th>Description</th>
     <th>Number Left</th>
     <th>Owner</th>
+    <th></th>
   </tr>
 
 <% @items.each do |item| %>
@@ -16,6 +17,7 @@
     <td><%= item.description %></td>
     <td><%= item.count %></td>
     <td><%= link_to item.user.name, item.user %></td>
+    <td><%= buy_button(item) %></td>
   </tr>
 <% end %>
 </table>

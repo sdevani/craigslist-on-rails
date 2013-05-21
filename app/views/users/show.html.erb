@@ -2,8 +2,15 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <br>
-<h4>I own these Items</h4>
-<% @items_owned.each do |item| %>
+<h4>I am selling these Items</h4>
+<% @items_selling.each do |item| %>
   <%= link_to item.title, item %>
+  <br>
+<% end %>
+<br>
+<br>
+<h4>I own these Items</h4>
+<% @item_orders.each do |order| %>
+  <%= link_to order.item.title, order.item %>
   <br>
 <% end %>
