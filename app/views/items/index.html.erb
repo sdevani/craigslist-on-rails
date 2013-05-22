@@ -20,14 +20,16 @@
       <td><%= item.description %></td>
       <td><%= item.count %></td>
       <td><%= link_to item.user.name, item.user %></td>
-      <td><%= item.rating %></td>
+      <td class="item-rating"><%= item.rating %></td>
       <% if !current_user.nil? %>
         <td><%= buy_button(item) unless current_user == item.user %></td>
         <td>
           <% unless current_user.item_orders.find_by_item_id(item.id).nil? %>
             <%= form_for(Rating.new,
               url: item_rating_path(item),
-              method: :post) do |f| %>
+              method: :post,
+              remote: true,
+              html: {data: {type: :json} } ) do |f| %>
             
               <%= f.number_field :rating, min: 1, max: 5, value: 5 %>
             

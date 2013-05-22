@@ -7,6 +7,14 @@ class RatingsController < ApplicationController
     @item.update_rating
     @item.save
 
-    redirect_to @item
+    respond_to do |format|
+      format.html do
+        redirect_to @item
+      end
+      format.json do
+        render json: @rating
+      end
+    end
+
   end
 end
