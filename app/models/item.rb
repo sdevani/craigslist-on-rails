@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
   has_many :item_orders
   has_many :ratings
 
+  default_scope order: 'created_at DESC'
+
   def update_rating
     rating_list = self.ratings
     if rating_list.any?
