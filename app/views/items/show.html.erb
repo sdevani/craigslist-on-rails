@@ -15,6 +15,20 @@
   <%= @item.description %>
 </p>
 
+<p>
+  <b>Seller</b>
+  <%= @item.user.name %>
+</p>
+
+<p>
+  <b>Number remaining</b>
+  <%= @item.count %>
+</p>
+
+<p>
+  <b>Rating</b>
+  <%= @item.rating %>
+</p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
