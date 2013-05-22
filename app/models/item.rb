@@ -1,8 +1,8 @@
 class Item < ActiveRecord::Base
   attr_accessible :cost, :description, :title, :count
   belongs_to :user
-  has_many :item_orders
-  has_many :ratings
+  has_many :item_orders, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   default_scope order: 'created_at DESC'
 
